@@ -39,6 +39,7 @@ function install_postgresql()
     sudo amazon-linux-extras install -y postgresql14 > ${TERM} 2>&1
     sudo yum install -y postgresql-contrib sysbench > ${TERM} 2>&1
 }
+source ~/environment/venv-qa-bedrock/bin/activate
 
 function clone_git()
 {
@@ -199,24 +200,6 @@ function check_installation()
 
 }
 
-
-function cp_logfile()
-{
-
-    bucket_name="genai-pgv-labs-${AWS_ACCOUNT_ID}-`date +%s`"
-    echo ${bucket_name}
-    aws s3 ls | grep ${bucket_name} > /dev/null 2>&1
-    if [ $? -ne 0 ] ; then
-        aws s3 mb s3://${bucket_name} --region ${AWS_REGION}
-    fi
-
-    aws s3 cp ${HOME}/environment/prereq.log s3://${bucket_name}/prereq_${AWS_ACCOUNT_ID}.txt > /dev/null 
-    if [ $? -eq 0 ] ; then
-	echo "Copied the logfile to bucket ${bucket_name}"
-    else
-	echo "Failed to copy logfile to bucket ${bucket_name}"
-    fi
-}
 # Main program starts here
 
 if [ ${1}X == "-xX" ] ; then
@@ -241,6 +224,5 @@ print_line
 install_python3
 print_line
 check_installation
-cp_logfile
 
 echo "Process completed at `date`"
