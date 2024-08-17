@@ -219,7 +219,7 @@ Resources:
           git clone https://github.com/VladlenKiev/aurora-postgresql-pgvector.git
           chmod +x /home/ec2-user/aurora-postgresql-pgvector/scripts/prereq.sh
           /home/ec2-user/aurora-postgresql-pgvector/scripts/prereq.sh
-          echo "Script execution completed" > /home/ec2-user/script_execution.log
+          echo "Script execution completed"
 
 # RDS IAM Role for Amazon Bedrock ------------------------------
 
