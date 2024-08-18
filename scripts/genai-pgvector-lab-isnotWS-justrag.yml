@@ -210,16 +210,6 @@ Resources:
       SubnetId: !Ref Subnet1
       InstanceType: m5.large
       ImageId: amazonlinux-2-x86_64
-    UserData:
-      Fn::Base64: !Sub |
-        #!/bin/bash
-        yum update -y
-        yum install -y git
-        cd /home/ec2-user
-        git clone https://github.com/VladlenKiev/aurora-postgresql-pgvector.git
-        chmod +x /home/ec2-user/aurora-postgresql-pgvector/scripts/prereq.sh
-        /home/ec2-user/aurora-postgresql-pgvector/scripts/prereq.sh
-        echo "Script execution completed" > /home/ec2-user/script_execution.log      
 
 # RDS IAM Role for Amazon Bedrock ------------------------------
 
