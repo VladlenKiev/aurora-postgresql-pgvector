@@ -218,7 +218,7 @@ if __name__ == '__main__':
     load_dotenv()
     
     # Define the Bedrock client.
-    BEDROCK_CLIENT = boto3.client("bedrock-runtime", 'us-west-2')
+    BEDROCK_CLIENT = boto3.client("bedrock-runtime", 'eu-central-1')
     
     # Create the connection string for pgvector. Ref: https://github.com/langchain-ai/langchain-postgres/blob/main/examples/vectorstore.ipynb
     db_user = os.getenv('PGUSER')

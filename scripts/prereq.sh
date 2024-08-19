@@ -15,7 +15,7 @@ function install_packages()
 {
     sudo yum install -y jq  > ${TERM} 2>&1
     print_line
-    source <(curl -s https://raw.githubusercontent.com/aws-samples/aws-swb-cloud9-init/mainline/cloud9-resize.sh)
+#    source <(curl -s https://raw.githubusercontent.com/aws-samples/aws-swb-cloud9-init/mainline/cloud9-resize.sh)
     echo "Installing aws cli v2"
     print_line
     aws --version | grep aws-cli\/2 > /dev/null 2>&1

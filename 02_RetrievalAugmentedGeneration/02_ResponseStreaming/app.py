@@ -193,7 +193,7 @@ if __name__ == '__main__':
     load_dotenv()
     
     # Define the Bedrock client
-    BEDROCK_CLIENT = boto3.client("bedrock-runtime", 'us-west-2')
+    BEDROCK_CLIENT = boto3.client("bedrock-runtime", 'eu-central-1')
     
     # Define the Embedding model using the Bedrock client
     embeddings = BedrockEmbeddings(model_id= "amazon.titan-embed-text-v2:0", client=BEDROCK_CLIENT)
